@@ -1,10 +1,367 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Homepage - Abhinandan Bhadauria</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="_images/Abhinandan_Bhadauria.jpg">
+    <title>Abhinandan Bhadauria | Industrial Edge & IIoT | Software Architect | Author of Edge Computing with Python</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --text-color: #333333;
+            --light-bg: #f9f9f9;
+            --border-color: #dddddd;
+            --accent-color: #d9534f;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: white;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        nav .brand {
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .profile-photo {
+            width: 240px;
+            min-width: 200px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 220px;
+            height: 260px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            display: block;
+            box-sizing: border-box;
+        }
+
+        .profile-photo .photo-placeholder {
+            width: 220px;
+            height: 260px;
+            border: 1px solid var(--border-color);
+            background-color: var(--light-bg);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 0.95rem;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .profile-info h1 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .profile-info .title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .profile-info .dept, .profile-info .inst {
+            margin: 2px 0;
+            color: #555;
+        }
+
+        .profile-info .address {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .profile-info .contact-info {
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+        .links-row {
+            margin-top: 20px;
+        }
+
+        .links-row a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .links-row a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 40px;
+            scroll-margin-top: 80px;
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        .recruitment-box {
+            background-color: #fff8f8;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px 20px;
+            margin-bottom: 30px;
+        }
+
+        .recruitment-box h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        .news-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .news-item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+
+        .news-date {
+            min-width: 100px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .news-content {
+            flex: 1;
+        }
+
+        footer {
+            background-color: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 5px 10px;
+            }
+            .news-item {
+                flex-direction: column;
+            }
+            .news-date {
+                margin-bottom: 2px;
+            }
+            .profile-photo {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            .profile-img {
+                width: 220px;
+                max-width: 100%;
+                height: auto;
+                aspect-ratio: 11 / 13;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Homepage</h1>
-    <p>I am a Software Architect. Check out my work!</p>
+
+    <!-- Navigation Header -->
+    <header>
+        <nav>
+            <a href="#" class="brand">Abhinandan Bhadauria</a>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#news">News</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container" id="home">
+        
+        <!-- Profile Overview Section -->
+        <div class="profile-section">
+            <div class="profile-info">
+                <h1>Abhinandan Bhadauria</h1>
+                <div class="title">Principal Software Engineer & Architect</div>
+                <div class="dept">[IEEE Member]</div>
+                <div class="inst">Siemens Technology and Services Pvt Ltd, Bangalore</div>
+                
+                <div class="address">
+                    Goldhill Excelsior<br>
+                    Electronic City, Phase 2, Bangalore, India - 560100
+                </div>
+
+                <div class="contact-info">
+                    <strong>Email:</strong> abhinandan.bhadauria@siemens.com
+                </div>
+
+                <!-- Academic Social Profiles Links -->
+                <div class="links-row">
+                    <a href="https://scholar.google.com/citations?user=Pa-3uO0AAAAJ&hl=en" target="_blank">Google Scholar</a>
+                    <a href="https://www.linkedin.com/in/abhinandan-bhadauria-2148a7b/" target="_blank">LinkedIn</a>
+                    <a href="https://orcid.org/0009-0009-8398-7659" target="_blank">ORCID</a>
+                    <a href="https://dblp.org/pid/121/2141.html" target="_blank">DBLP</a>
+                </div>
+            </div>
+            <div class="profile-photo" aria-label="Profile picture area">
+                <img src="_images/Abhinandan_Bhadauria.jpg" alt="Abhinandan Bhadauria" class="profile-img">
+                <!-- <div class="photo-placeholder">Profile Picture</div> -->
+            </div>
+        </div>
+        <!-- About Me Narrative Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a technology leader and platform architect with over two decades of deep-domain expertise in <strong>Industrial Automation, Edge Computing, IIoT Platforms, and Mission-Critical Embedded Systems</strong>. Currently, I serve as a <strong>Principal Software Engineer & Architect at Siemens Technology, Bangalore</strong>, where I operate as one of the architects for the flagship <em>Siemens Industrial Edge platform</em>.</p> 
+            <p>Throughout my engineering career, I have architected and delivered highly scalable solutions ranging from specialized embedded frameworks to large distributed enterprise systems across Windows, UNIX/Linux, and cloud platforms. My background bridges the critical gap between complex Operational Technology (OT) ecosystems and scalable IT infrastructures, aligning core software design with strict industrial reliability.</p>
+            <p>I hold a Bachelor of Computer Applications (BCA), a Post Graduate Diploma in Advanced Computing (PGDAC) from C-DAC Chennai, and a Master of Computer Applications (MCA). Beyond industry execution, I am an active contributor to the global technical community as a published author, IEEE member, and conference speaker.</p>
+        </section>
+
+        <!-- Publication / Timeline Updates Section -->
+        <section id="news">
+            <h2>News</h2>
+            <ul class="news-list">
+                <li class="news-item">
+                    <div class="news-date">Jun 2026</div>
+                    <div class="news-content">PC Member <em>IEEE International Conference on Adaptive Intelligence, Modeling and Simulation (ICAIMS 2026)</em>.</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">Nov 2025</div>
+                    <div class="news-content">Patent application EP24177276.3A: <em>System and method for automatic optimization of compound viscosity in rubber mixers</em> published by EPO.</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">Mar 2025</div>
+                    <div class="news-content">PC Member <em>IEEE International Conference on Software Architecture (ICSA 2025)</em>.</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">Jun 2024</div>
+                    <div class="news-content">Two papers published in <em>International Conference on Software Architecture (ICSA 2024)</em>.</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">Mar 2024</div>
+                    <div class="news-content">Guest speaker at Gulzar Group of Institute, Ludhiana on <em>Edge Computing & Its Applications Technical Session</em>.</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">Aug 2023</div>
+                    <div class="news-content">Guest speaker at SSN College of Engineering, Chennai on <em>Edge Computing & Its Applications National Workshop</em>.</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">Oct 2022</div>
+                    <div class="news-content">Authored the book <em>Edge Computing with Python [BPB Publications]</em>.</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">Jan 2022</div>
+                    <div class="news-content">Guest speaker at Jain University Bangalore on <em>Industrial Automation & Edge Computing</em>.</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">Aug 2013</div>
+                    <div class="news-content">Two papers published in <em>IEEE International Conference on Global Software Engineering (ICGSE 2013)</em>.</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">Aug 2012</div>
+                    <div class="news-content">One paper published in <em>IEEE International Conference on Global Software Engineering (ICGSE 2012)</em>.</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">Nov 2011</div>
+                    <div class="news-content">Patent application EP10004075A: <em>System and a method for updating an operating system image</em> published by EPO.</div>
+                </li>
+            </ul>
+        </section>
+
+
+    </div>
+
+    <!-- Page Footer -->
+    <footer>
+        <p>&copy; Copyright 2026 Abhinandan Bhadauria. All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
